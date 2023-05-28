@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django_grpc_framework import generics
 from book.serializers import BookSerializer
-from proto_compiled import book_pb2
-from proto_compiled import book_pb2_grpc
+from proto_book import book_pb2
+from proto_book import book_pb2_grpc
 import json
 from google._upb._message import RepeatedScalarContainer
 from book.models import Book

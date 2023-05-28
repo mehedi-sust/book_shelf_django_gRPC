@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 proto_compiled/
+proto_book/
 
 # C extensions
 *.so

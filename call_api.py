@@ -1,6 +1,6 @@
 import grpc
-from proto_compiled import book_pb2
-from proto_compiled import book_pb2_grpc
+from proto_book import book_pb2
+from proto_book import book_pb2_grpc
 
 
 def call_add_book():
@@ -87,10 +87,10 @@ def delete_book(book_id):
         print(response)
 
 
-# call_add_book()
-# call_add_book()
-# call_get_book(1)
-# delete_book(1)
+#call_add_book()
+#call_add_book()
+#call_get_book(2) # here parameter book id
+#delete_book(1) # here parameter book id
+#update_book(2,"updated-Title", "J.K", 2001, ["Fantasy"])
 list_books()
-# update_book(3,"updated-Title", "J.K", 2001, ["Fantasy"])
 # call_get_book(3)

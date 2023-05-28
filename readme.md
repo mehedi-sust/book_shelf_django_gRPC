@@ -1,4 +1,4 @@
-# Book Shelf Service
+# Book Shelf Django gRPC Service
 
 The Book Shelf Service is a gRPC service that allows users to manage books. It provides functionality to add, retrieve, update, and delete books using the gRPC protocol.
 
@@ -8,7 +8,7 @@ Before getting started with the Book Shelf project, make sure you have the follo
 
 1. **Python**: Ensure that Python is installed on your machine. You can download the latest version of Python from the official Python website: [python.org](https://www.python.org).
 
-3. **PostgreSQL**: Book Shelf utilizes a PostgreSQL database. Install PostgreSQL and configure it on your machine. You can download PostgreSQL from the official website: [postgresql.org](https://www.postgresql.org). Or you can run it on docker. And dont forget to create the database. 
+3. **PostgreSQL**: Book Shelf utilizes a PostgreSQL database. Install PostgreSQL and configure it on your machine. You can download PostgreSQL from the official website: [postgresql.org](https://www.postgresql.org). You can also run it on docker. Check My [PostgreSQL Docker Compose](https://github.com/mehedi-sust/postgres-docker-compose.git). 
 
 
 ## Installation
@@ -23,12 +23,31 @@ Before getting started with the Book Shelf project, make sure you have the follo
    ```shell
       pip install -r requirements.txt
    ```
-3. Generate the protobuf files:
+3. Set up the proto submodule:
 
    ```shell
-   protoc -I proto --python_out=proto_compiled --grpc_python_out=proto_compiled proto/book.proto
+   git submodule init
+   git submodule update
    ```
-4. Run the Django development server:
+4. Generate the protobuf files:
+
+   ```shell
+   protoc -I proto --python_out=./ --grpc_python_out=./ proto/proto_book/book.proto
+   ```
+   Or
+   Alternate way for gemerating protobuf files (if you dont have protoc installed):
+   ```shell
+   python -m grpc_tools.protoc --proto_path=./proto/ --python_out=./ --grpc_python_out=./ ./proto/proto_book/book.proto
+   ```
+
+
+5. Run the Django migration commands:
+   ```shell
+   python manage.py makemigratinos
+   python manage.py migrate
+   ```
+
+6. Run the Django development server:
    ```shell
    python manage.py grpcrunserver
    ```

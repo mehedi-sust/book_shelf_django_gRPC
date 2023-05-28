@@ -71,6 +71,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "book_shelf_django.wsgi.application"
 
+requires_system_checks = [
+    'django.core.checks.security.check_security',
+    'django.contrib.auth.checks.check_user_model',
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
